@@ -1,10 +1,10 @@
 #include<stdio.h>
 #define maxlen 100
-//²½ÖèÑİËã https://alchemist-al.com/algorithms/longest-common-subsequence
-//Ïê½â£ºhttps://blog.csdn.net/qq_39521554/article/details/79265232
-//Óë·ÖÖÎ·¨µÄÇø±ğ£ºhttps://www.cnblogs.com/ZeroTensor/p/10550071.html 
-//13456778 357486782 ²âÊÔÊı¾İ 
-int getvalue(char *a) //¸³Öµ 
+//æ­¥éª¤æ¼”ç®— https://alchemist-al.com/algorithms/longest-common-subsequence
+//è¯¦è§£ï¼šhttps://blog.csdn.net/qq_39521554/article/details/79265232
+//ä¸åˆ†æ²»æ³•çš„åŒºåˆ«ï¼šhttps://www.cnblogs.com/ZeroTensor/p/10550071.html 
+//13456778 357486782 æµ‹è¯•æ•°æ® 
+int getvalue(char *a) //èµ‹å€¼ 
 {
     char c;
     int i=0;
@@ -22,9 +22,9 @@ int main()
 	char s1[maxlen]="";
 	char s2[maxlen]="";
 	char over[maxlen]="";
-	int slcs[maxlen][maxlen]={0}; //¹ØÏµºÏ²¢±í 
-    s1len = getvalue(s1);//»ñÈ¡³¤¶È 
-    s2len = getvalue(s2);
+	int slcs[maxlen][maxlen]={0}; //å…³ç³»åˆå¹¶è¡¨ 
+    	s1len = getvalue(s1);//è·å–é•¿åº¦ 
+    	s2len = getvalue(s2);
 	int i,j,n,get;
 	for(i=0;i<s1len;i++)
 	{
@@ -32,10 +32,10 @@ int main()
 		for(j=0;j<s2len;j++)
 		{
 			if(temp == s2[j]){
-				slcs[i+1][j+1] = slcs[i][j]+1;//ÏàµÈ¾Í¸³Öµ 
+				slcs[i+1][j+1] = slcs[i][j]+1;//ç›¸ç­‰å°±èµ‹å€¼ 
 			}
 			else{
-				slcs[i+1][j+1] = slcs[i][j+1]>slcs[i+1][j]?slcs[i][j+1]:slcs[i+1][j];//²»ÏàµÈ¿´ÁÚ¿é×î´óÖµ 
+				slcs[i+1][j+1] = slcs[i][j+1]>slcs[i+1][j]?slcs[i][j+1]:slcs[i+1][j];//ä¸ç›¸ç­‰çœ‹é‚»å—æœ€å¤§å€¼ 
 			}
 			//printf("%d ",slcs[i+1][j+1]);
 		}
@@ -45,10 +45,9 @@ int main()
 	printf("len:%d ",get);
 	i=s1len-1;
 	j=s2len-1;
-	
-	//°´¹æÂÉÕÒ³ö×î³¤×ÓĞòÁĞ 
-	//¶ÔÓ¦²»ÏàµÈ£¬ÕÒµ½ÁÚ¿é×î´óÖµ £¬ÈôÏàÍ¬ÔòÑ¡ÔñÒ»¸ö¹Ì¶¨µÄ·½Ïò 
-    //¶ÔÓ¦ÏàµÈÔòÊä³ö
+	//æŒ‰è§„å¾‹æ‰¾å‡ºæœ€é•¿å­åºåˆ— 
+	//å¯¹åº”ä¸ç›¸ç­‰ï¼Œæ‰¾åˆ°é‚»å—æœ€å¤§å€¼ ï¼Œè‹¥ç›¸åŒåˆ™é€‰æ‹©ä¸€ä¸ªå›ºå®šçš„æ–¹å‘ 
+        //å¯¹åº”ç›¸ç­‰åˆ™è¾“å‡º
 	while(n)
 	{
 		if(s1[i]==s2[j])
@@ -71,7 +70,7 @@ int main()
 			i--;
 		}
 	}
-	printf("Longest subsequence:");//Êä³ö 
+	printf("Longest subsequence:");//è¾“å‡º 
 	i=0;
 	while(i<get){
 		printf("%c",over[i++]);
